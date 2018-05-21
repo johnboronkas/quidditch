@@ -10,8 +10,13 @@ config_version=3
 
 [application]
 
-config/name="quidditch"
+config/name="Quidditch"
+run/main_scene="res://Scenes/Lobby.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/handheld/orientation="portrait"
 
 [rendering]
 
