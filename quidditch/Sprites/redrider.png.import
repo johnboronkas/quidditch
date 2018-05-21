@@ -7,10 +7,10 @@ path="res://.import/redrider.png-eeaf1bc0c9f9b95ea52729d169e03158.stex"
 [deps]
 
 source_file="res://Sprites/redrider.png"
-source_md5="928fc19f2a7c8c671ba31d74f431e072"
+source_md5="827e57b83f2674482569db188f9371f5"
 
 dest_files=[ "res://.import/redrider.png-eeaf1bc0c9f9b95ea52729d169e03158.stex" ]
-dest_md5="993af36e8cd04b4fa9481d0222a45f60"
+dest_md5="4adf0afac32a18ac844de9d471e94ab3"
 
 [params]
 
