@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hp_theme.wav-000e89be62cca71ec3fd6c6e10a245db.sample"
+
+[deps]
+
+source_file="res://Sounds/hp_theme.wav"
+source_md5="24bdde9f5c7d80aaa4ca25c18acc5c0b"
+
+dest_files=[ "res://.import/hp_theme.wav-000e89be62cca71ec3fd6c6e10a245db.sample" ]
+dest_md5="815efb2ce621dbd6eb3c67acfb00576e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
