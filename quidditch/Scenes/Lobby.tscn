@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/pitch.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 
-[node name="Lobby" type="Control" index="0"]
+[node name="Lobby" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
