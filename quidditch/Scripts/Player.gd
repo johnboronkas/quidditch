@@ -1,10 +1,12 @@
 extends Area2D
 
 export (int) var SPEED
-export (float) var ROTATION_SPEED
+export (float) var ROTATION_DEG_PER_FRAME
+export (int) var ROTATION_TOLERANCE
 export (int) var ACC_LIMIT
 
-var acc_mode = false
+var rotation_locked = false
+var acc_mode = true
 
 func _process(delta):
 	var velocity = Vector2()
@@ -15,15 +17,22 @@ func _process(delta):
 
 	# Only rotate towards direction of movement if velocity is fast.
 	if abs(velocity.x) > 1 || abs(velocity.y) > 1:
-		var desired_look_dir = position.angle_to(-velocity)
-		var look_dir_diff = rotation_degrees - desired_look_dir
+		var desired_look_dir = rad2deg(velocity.rotated(deg2rad(90)).angle())
+		var look_dir_diff = fmod(round(rotation_degrees - desired_look_dir + 360), 360.0)
+
+		print(round(look_dir_diff))
 
 		# Close enough to looking towards desired look direction, so stop rotation.
-		if abs(look_dir_diff) > 2:
-			if look_dir_diff < 0:
-				rotation_degrees += ROTATION_SPEED
+		if abs(look_dir_diff) > ROTATION_TOLERANCE:
+			rotation_locked = false
+			if look_dir_diff > 180:
+				rotation_degrees += ROTATION_DEG_PER_FRAME
 			else:
-				rotation_degrees -= ROTATION_SPEED
+				rotation_degrees -= ROTATION_DEG_PER_FRAME
+		else:
+			if not(rotation_locked):
+				rotation_degrees = desired_look_dir
+				rotation_locked = true
 
 	position += velocity * SPEED * delta
 

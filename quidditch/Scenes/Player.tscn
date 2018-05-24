@@ -35,7 +35,8 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Animation", "Material", "Transform" ]
 SPEED = 40
-ROTATION_SPEED = 0.5
+ROTATION_DEG_PER_FRAME = 5.0
+ROTATION_TOLERANCE = 8
 ACC_LIMIT = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
