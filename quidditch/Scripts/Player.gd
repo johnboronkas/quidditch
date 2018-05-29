@@ -6,7 +6,7 @@ export (int) var ROTATION_TOLERANCE
 export (int) var ACC_LIMIT
 
 var rotation_locked = false
-var acc_mode = true
+var acc_mode = false
 
 func _process(delta):
 	var velocity = Vector2()
@@ -16,11 +16,9 @@ func _process(delta):
 		velocity = get_kb_velocity()
 
 	# Only rotate towards direction of movement if velocity is fast.
-	if abs(velocity.x) > 1 || abs(velocity.y) > 1:
+	if abs(velocity.x) > ACC_LIMIT / 3 || abs(velocity.y) > ACC_LIMIT / 3:
 		var desired_look_dir = rad2deg(velocity.rotated(deg2rad(90)).angle())
 		var look_dir_diff = fmod(round(rotation_degrees - desired_look_dir + 360), 360.0)
-
-		print(round(look_dir_diff))
 
 		# Close enough to looking towards desired look direction, so stop rotation.
 		if abs(look_dir_diff) > ROTATION_TOLERANCE:

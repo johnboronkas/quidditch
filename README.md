@@ -2,7 +2,6 @@
 
 ## TODO
 
-- Camera Follow Script
 - NETWORKING!
 - Update README with tools being used (asprite, godot, beepbox)
 
