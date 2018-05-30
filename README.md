@@ -3,6 +3,8 @@
 ## TODO
 
 - NETWORKING!
+  - Attempt to connect to devin's phone
+  - Update to use real IP addresses via GUI (since phone and computer are on different networks)
 - Update README with tools being used (asprite, godot, beepbox)
 
 ## Installing
