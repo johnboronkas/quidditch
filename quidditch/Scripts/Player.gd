@@ -1,12 +1,16 @@
 extends Area2D
 
-export (int) var SPEED
+export (int) var MAX_SPEED
+export (int) var ACC_LIMIT
 export (float) var ROTATION_DEG_PER_FRAME
 export (int) var ROTATION_TOLERANCE
-export (int) var ACC_LIMIT
 
+var speed = 0
 var rotation_locked = false
 var acc_mode = false
+
+func _ready():
+	speed = MAX_SPEED / ACC_LIMIT
 
 func _process(delta):
 	var velocity = Vector2()
@@ -32,7 +36,7 @@ func _process(delta):
 				rotation_degrees = desired_look_dir
 				rotation_locked = true
 
-	position += velocity * SPEED * delta
+	position += velocity * speed * delta
 
 func get_acc_velocity():
 	var x_tilt = clamp(Input.get_accelerometer().x, -ACC_LIMIT, ACC_LIMIT)

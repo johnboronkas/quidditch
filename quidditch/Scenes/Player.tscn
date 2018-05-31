@@ -23,7 +23,7 @@ height = 14.3059
 custom_solver_bias = 0.0
 radius = 27.7847
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -34,10 +34,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Animation", "Material", "Transform" ]
-SPEED = 60
+MAX_SPEED = 400
+ACC_LIMIT = 5
 ROTATION_DEG_PER_FRAME = 4.0
 ROTATION_TOLERANCE = 8
-ACC_LIMIT = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 

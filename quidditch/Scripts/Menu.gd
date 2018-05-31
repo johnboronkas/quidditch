@@ -13,7 +13,7 @@ var positions = []
 var positionIndex = 0
 
 func _ready():
-	avatar = preload("res://Scripts/Player.gd")
+	avatar = preload("res://Scenes/Player.tscn")
 
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 	get_tree().connect("connected_to_server", self, "_connected_ok")
@@ -45,10 +45,10 @@ func _on_PositionButton_pressed():
 
 func _on_HostButton_pressed():
 	var host = NetworkedMultiplayerENet.new()
-	host.create_server(PORT, 14)
+	host.create_server(PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(host)
 
-	$StatusLabel.text = "hosting - awaiting connections"
+	$StatusLabel.text = "hosting - 1/" + str(MAX_PLAYERS) + " players connected"
 
 	$HostButton.disabled = true
 	$JoinButton.disabled = true
@@ -68,7 +68,7 @@ remote func register_player(player_id):
 	player.set_network_master(player_id)
 	player.name = str(player_id)
 	get_tree().get_root().add_child(player)
-	$StatusLabel.text = players.size() + "/" + MAX_PLAYERS + " players connected"
+	$StatusLabel.text = str(players.size()) + "/" + str(MAX_PLAYERS) + " players connected"
 
 	# Host should tell other players about the new player
 	if get_tree().get_network_unique_id() == 1:
